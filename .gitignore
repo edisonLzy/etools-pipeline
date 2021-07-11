@@ -27,5 +27,6 @@ index.html
 
 .vscode
 lib
-*.local.*
+*.local.*\
+types
 
