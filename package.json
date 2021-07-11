@@ -2,7 +2,7 @@
   "name": "em-pipeline",
   "version": "0.0.1",
   "description": "pipeline work flow",
-  "main": "index.ts",
+  "main": "./lib/index.js",
   "typings": "./lib/types",
   "scripts": {
     "clean": "rimraf lib",
