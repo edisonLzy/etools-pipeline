@@ -1,0 +1,43 @@
+{
+  "name": "em-pipeline",
+  "version": "1.0.0",
+  "description": "pipeline work flow",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm run clean && tsc",
+    "start": "nodemon --watch src --ext js,ts --exec 'npm run dev'",
+    "dev": "ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.30.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "@em-cli/shared": "^0.0.6"
+  },
+  "gitHooks":{
+    "pre-commit":"lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
