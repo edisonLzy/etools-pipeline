@@ -26,5 +26,6 @@ index.html
 .env.local
 
 .vscode
+lib
 *.local.*
 
