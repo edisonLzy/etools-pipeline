@@ -1,7 +1,7 @@
 {
-  "name": "em-pipeline",
-  "version": "0.0.2",
-  "description": "pipeline work flow",
+  "name": "em-template-lib",
+  "version": "0.0.1",
+  "description": "ts 开发库的模版",
   "main": "./lib/index.js",
   "typings": "./lib/types",
   "scripts": {
