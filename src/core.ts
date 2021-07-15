@@ -14,14 +14,16 @@ export interface TaskItem<T extends Obj = Obj, O extends Obj = Obj> {
     fn: Task<T, O>
 }
 export class PipeLine<T extends Obj> {
+    private taskGenerator:Generator; 
     private taskQueue: TaskItem<T>[] = [];
     private _taskQueue: TaskItem<T>[] = [];
     private prevState!: T;
-    *[Symbol.iterator](){
-        yield * this._taskQueue;
+    constructor(){
+        // 初始化生成器对象
+        this.taskGenerator = this.createTask();   
     }
     tap<O extends Obj>
-    (description: string, fn: TaskItem<T, O>['fn']): PipeLine<MergeType<T, O>> {
+    (description: string, fn: any ): PipeLine<MergeType<T, O>> {
         this.taskQueue.push({
             description,
             fn
@@ -33,27 +35,20 @@ export class PipeLine<T extends Obj> {
         return this as PipeLine<MergeType<T, O>>;
     }
     run(context: T) {
-        if (this.taskQueue.length === 0) {
-            logger.error('taskQueue is empty');
-            return;
-        }
-        const done = (state: Obj = {}) => {
-            if (this.taskQueue.length === 0) return;
-            const taskItem = this.taskQueue.shift();
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            const { description, fn } = taskItem!;
-            logger.info(TIPS.start + description);
-            // 合并传入的 state 和 上次的state
-            this.prevState = {
-                ...this.prevState,
-                ...state
-            };
-            fn(this.prevState, (innerState: Obj = {}) => {
-                logger.done(TIPS.end + description);
-                done(innerState);
-            });
-        };
-        done(context);
+        const {done,value} = this.taskGenerator.next();
+        const {fn,description} = value;
+        logger.info(TIPS.start + description );
+        fn(context,this.taskGenerator);
+        logger.info(TIPS.end + description );
+        
     }
+    private * createTask(){
+        yield * this.taskQueue;
+    }
+
+    *[Symbol.iterator](){
+        yield * this._taskQueue;
+    }
+    
 }
 
