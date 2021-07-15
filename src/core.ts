@@ -1,6 +1,6 @@
 import { logger } from '@em-cli/shared';
 import { TIPS } from './const';
-export type Next<T> = (state?: WithOtherProps<T>) => void
+export type Next<T> = (state?: WithOtherProps<Partial<T>>) => void
 export type WithOtherProps<T> = T & Record<string, unknown>;
 export type Task<T = unknown> = (context: WithOtherProps<T>, next: Next<T>) => void
 export interface TaskItem<T> {
