@@ -1,1 +1,1 @@
-export * from './core';
+console.log('main');

@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
+    "declarationDir": "./lib/types",
     "module": "CommonJS",
     "outDir": "./lib",
     "strict": true,
