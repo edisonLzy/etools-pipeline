@@ -33,6 +33,7 @@ module.exports = {
             'error',
             'always'
         ],
-        '@typescript-eslint/explicit-module-boundary-types': 'off'
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-non-null-assertion':'off'
     }
 };
