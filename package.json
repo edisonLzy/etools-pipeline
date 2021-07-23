@@ -13,7 +13,7 @@
     "start": "nodemon --watch src --ext js,ts --exec 'npm run dev'",
     "dev": "ts-node src/index.ts"
   },
-  "author": "",
+  "author": "evan",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
