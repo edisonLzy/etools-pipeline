@@ -1,6 +1,6 @@
 {
   "name": "em-pipeline",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "pipeline work flow",
   "main": "./lib/index.js",
   "typings": "./lib/types",
@@ -11,7 +11,9 @@
     "clean": "rimraf lib",
     "build": "npm run clean && tsc",
     "start": "nodemon --watch src --ext js,ts --exec 'npm run dev'",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "prepublish": "npm run build",
+    "publish": "npm publish"
   },
   "author": "",
   "license": "ISC",
