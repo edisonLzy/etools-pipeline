@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
@@ -26,5 +28,3 @@ jobs:
         run: ls -al
       - run: pnpm build
       - run: pnpm ci
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
