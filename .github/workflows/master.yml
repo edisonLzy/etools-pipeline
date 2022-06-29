@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - name: setup pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: latest
       - name: install dep
         run: pnpm install
       - name: ls 
