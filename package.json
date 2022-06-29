@@ -24,7 +24,8 @@
     "build:type": "npx @etools/tsc",
     "start": "npm run build -- --watch",
     "test": "jest",
-    "dev": "ts-node -r tsconfig-paths/register ./src/index.ts"
+    "dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "ci": "pnpm version patch && pnpm publish"
   },
   "license": "ISC",
   "devDependencies": {
