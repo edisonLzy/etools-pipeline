@@ -19,7 +19,6 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "prepublishOnly": "npm run test && npm run build",
     "build": "rollup -c",
     "prebuild": "npm run build:type",
     "build:type": "npx @etools/tsc",

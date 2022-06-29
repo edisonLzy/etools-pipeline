@@ -4,3 +4,4 @@ lib
 types
 *.local.*
 coverage
+.history
