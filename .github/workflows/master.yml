@@ -6,27 +6,24 @@ on:
   push:
     branches:
       - master
-
+env:
+    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
           version: latest
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          pnpm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
       - name: check user
         run: |
-          cd $HOME
-          ls -al | grep 'npmrc'
-          cat .npmrc
           pnpm whoami
       # - name: install dep
       #   run: pnpm install
