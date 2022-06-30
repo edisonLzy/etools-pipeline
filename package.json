@@ -1,6 +1,6 @@
 {
   "name": "@etools/pipeline",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
