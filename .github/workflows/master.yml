@@ -23,10 +23,12 @@ jobs:
       - name: set auth
         run: |
           pnpm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          pnpm config get
+          cd ~
+          cat .npmrc
+      - name: check user
+        run: |
           pnpm whoami
-      # - name: check user
-      #   run: |
-      #     pnpm whoami
       # - name: install dep
       #   run: pnpm install
       # - name: ls 
