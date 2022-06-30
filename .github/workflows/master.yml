@@ -23,8 +23,7 @@ jobs:
       - name: set auth
         run: |
           pnpm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          pnpm config get 
-          pnpm config ls -l
+          pnpm whoami
       # - name: check user
       #   run: |
       #     pnpm whoami
