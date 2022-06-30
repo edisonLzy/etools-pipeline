@@ -19,11 +19,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: check user
         run: |
+          pnpm config get
           pnpm whoami
       - name: install dep
         run: pnpm install
