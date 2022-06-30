@@ -1,9 +1,6 @@
 {
   "name": "@etools/pipeline",
   "version": "0.0.6",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "pipeline workflow",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -24,7 +21,7 @@
     "start": "npm run build -- --watch",
     "test": "jest",
     "dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
-    "ci": "pnpm publish"
+    "ci": "pnpm publish --access=public"
   },
   "license": "ISC",
   "devDependencies": {
