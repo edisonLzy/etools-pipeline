@@ -22,10 +22,7 @@ jobs:
           version: latest
       - name: set auth
         run: |
-          pnpm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          pnpm config get
-          cd ~
-          cat .npmrc
+          pnpm config set //registry.npmjs.org/:_authToken=xxx
       - name: check user
         run: |
           pnpm whoami
