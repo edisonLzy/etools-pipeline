@@ -22,12 +22,12 @@ jobs:
           version: latest
       - name: set auth
         run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm config get 
-          npm whoami
-      - name: check user
-        run: |
-          pnpm whoami
+          pnpm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          pnpm config get 
+          pnpm config ls -l
+      # - name: check user
+      #   run: |
+      #     pnpm whoami
       # - name: install dep
       #   run: pnpm install
       # - name: ls 
