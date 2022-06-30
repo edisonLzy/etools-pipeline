@@ -26,9 +26,9 @@ jobs:
       - name: check user
         run: |
           pnpm whoami
-      # - name: install dep
-      #   run: pnpm install
-      # - name: ls 
-      #   run: ls -al
-      # - run: pnpm build
-      # - run: pnpm ci
+      - name: install dep
+        run: pnpm install
+      - name: ls 
+        run: ls -al
+      - run: pnpm build
+      - run: pnpm ci
