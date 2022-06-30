@@ -24,9 +24,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: check user
         run: |
-          npm get --userconfig
-          cd $HOME
-          ls -al | grep "npmrc"
           pnpm whoami
       - name: install dep
         run: pnpm install
