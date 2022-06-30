@@ -19,16 +19,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org
+          registry-url: https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: check user
         run: |
-          pnpm config get
+          cd $HOME
+          ls -al | grep 'npmrc'
+          cat .npmrc
           pnpm whoami
-      - name: install dep
-        run: pnpm install
-      - name: ls 
-        run: ls -al
-      - run: pnpm build
-      - run: pnpm ci
+      # - name: install dep
+      #   run: pnpm install
+      # - name: ls 
+      #   run: ls -al
+      # - run: pnpm build
+      # - run: pnpm ci
